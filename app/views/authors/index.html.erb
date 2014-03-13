@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Born</th>
       <th>Died</th>
       <th>Info</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @authors.each do |author| %>
       <tr>
+        <td><%= author.name %></td>
         <td><%= author.born %></td>
         <td><%= author.died %></td>
         <td><%= author.info %></td>
