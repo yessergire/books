@@ -16,7 +16,7 @@
   <tbody>
     <% @authors.each do |author| %>
       <tr>
-        <td><%= author.name %></td>
+        <td><%= link_to author.name, author %></td>
         <td><%= author.born %></td>
         <td><%= author.died %></td>
         <td><%= author.info %></td>
