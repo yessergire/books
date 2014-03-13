@@ -7,5 +7,12 @@ script:
 - bundle exec rake db:test:prepare
 - bundle exec rspec -fd
 before_install:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+deploy:
+  provider: heroku
+  api_key:
+    secure: b/p5+IpdFAO/tqy0F80ZPg5VtZu5ZFcgLlTKhaC0ArE5DxVxr9ZfhbRQUVm5X0OuEsKceHzXVNBTsx+35d3OhEsMmbv+gUgy8L8UpkJHbiW6G0Kn8Hy2ir1YXMeRnE3i2feWbHMAC6FPXI9t5paILtW6ww507h6ncwH6FYTIc0w=
+  app: radiant-headland-2211
+  on:
+    repo: gire/books
