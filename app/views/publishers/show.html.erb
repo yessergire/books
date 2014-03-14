@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= link_to @publisher.name, @publisher.url %></h1>
+
+
+<% unless @publisher.books.empty? %>
+    <ul>
+      <% @publisher.books.each do |book| %>
+        <li><%= link_to book.name, book %></li>
+      <%end%>
+    </ul>
+<%end%>
+
+<%= link_to 'Edit', edit_publisher_path(@publisher) %> |
+<%= link_to 'Back', publishers_path %>

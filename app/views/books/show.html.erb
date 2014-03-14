@@ -4,8 +4,12 @@
   <%= @book.name %>
 </h1>
 
+<% unless @book.publisher.nil? %>
+    Published by <%= link_to @book.publisher.name, @book.publisher %>
+<% end %>
+
 <% unless @book.authors.empty? %>
-    <p>By
+    <p>Authors
       <% @book.authors.each do |author| %>
           <%= link_to author.name, author %>
       <%end%>
