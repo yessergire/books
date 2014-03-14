@@ -15,7 +15,7 @@
     <% @books.each do |book| %>
       <tr>
         <td><%= link_to book.name, book %></td>
-        <td><%= book.plot %></td>
+        <td><%= truncate(book.plot, length: 100) %></td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

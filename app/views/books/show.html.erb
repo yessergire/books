@@ -5,11 +5,19 @@
 </h1>
 
 <% unless @book.authors.empty? %>
-<p>By
-  <% @book.authors.each do |author| %>
-      <%= link_to author.name, author %>
-  <%end%>
-</p>
+    <p>By
+      <% @book.authors.each do |author| %>
+          <%= link_to author.name, author %>
+      <%end%>
+    </p>
+<%end%>
+
+<% unless @book.authors.empty? %>
+    <p>Genres
+      <% @book.genres.each do |genre| %>
+          <%= link_to genre.name, genre %>
+      <%end%>
+    </p>
 <%end%>
 
 <p>
