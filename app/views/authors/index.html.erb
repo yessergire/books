@@ -1,32 +1,10 @@
 <h1>Listing authors</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Born</th>
-      <th>Died</th>
-      <th>Info</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<ul>
     <% @authors.each do |author| %>
-      <tr>
-        <td><%= link_to author.name, author %></td>
-        <td><%= author.born %></td>
-        <td><%= author.died %></td>
-        <td><%= author.info %></td>
-        <td><%= link_to 'Show', author %></td>
-        <td><%= link_to 'Edit', edit_author_path(author) %></td>
-        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li><%= link_to author.name, author %></li>
     <% end %>
-  </tbody>
-</table>
+</ul>
 
 <br>
 
