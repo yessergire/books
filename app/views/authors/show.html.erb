@@ -2,20 +2,15 @@
 
 <h1> <%= @author.name %> </h1>
 
-<p>
-  <strong>Born:</strong>
-  <%= @author.born %>
-</p>
-
-<p>
-  <strong>Died:</strong>
-  <%= @author.died %>
-</p>
-
-<p>
-  <strong>Info:</strong>
-  <%= @author.info %>
-</p>
+<% unless @author.books.empty? %>
+    <p>This author has written <%= pluralize(@author.books.count, 'book') %>
+      <ul>
+        <% @author.books.each do |book| %>
+          <li><%= link_to book.name, book %></li>
+        <%end%>
+      </ul>
+    </p>
+<%end%>
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
 <%= link_to 'Back', authors_path %>

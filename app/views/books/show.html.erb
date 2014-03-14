@@ -1,12 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @book.name %>
+</h1>
+
+<% unless @book.authors.empty? %>
+<p>By
+  <% @book.authors.each do |author| %>
+      <%= link_to author.name, author %>
+  <%end%>
 </p>
+<%end%>
 
 <p>
-  <strong>Plot:</strong>
   <%= @book.plot %>
 </p>
 
