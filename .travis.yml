@@ -6,6 +6,7 @@ script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
 - bundle exec rspec -fd
+- CODECLIMATE_REPO_TOKEN=aa2487c07f000c2c4b3c10c4abff5f34480243c5d47326158149f640d3a3bbe9 bundle exec rake
 before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
@@ -16,3 +17,5 @@ deploy:
   app: radiant-headland-2211
   on:
     repo: gire/books
+notifications:
+  email: false

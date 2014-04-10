@@ -4,7 +4,7 @@ describe "books/index" do
   before(:each) do
     assign(:books, [
       stub_model(Book,
-        :name => "Name",
+        :name => "Book123",
         :plot => "MyText"
       ),
       stub_model(Book,
@@ -15,9 +15,9 @@ describe "books/index" do
   end
 
   it "renders a list of books" do
+    visit books_path
+    save_and_open_page
+    expect(page).to have_content 'Book123'
     render
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
   end
 end

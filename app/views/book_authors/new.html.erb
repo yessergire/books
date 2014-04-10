@@ -1,0 +1,25 @@
+<%= form_for(@book_author) do |f| %>
+    <% if @book_author.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@book_author.errors.count, "error") %> prohibited from being saved:</h2>
+
+          <ul>
+            <% @book.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :book_id %>
+      <%= f.select :book_id, options_from_collection_for_select(@books, :id, :name, @book_id) %><br>
+    </div>
+    <div class="field">
+      <%= f.label :author_id %>
+      <%= f.select :author_id, options_from_collection_for_select(@authors, :id, :name) %><br>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

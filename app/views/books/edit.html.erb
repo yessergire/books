@@ -4,3 +4,5 @@
 
 <%= link_to 'Show', @book %> |
 <%= link_to 'Back', books_path %>
+
+<%= link_to 'Add author', new_book_author_path(params: {book_id: @book.id})  %>
