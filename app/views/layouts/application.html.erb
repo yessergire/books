@@ -13,6 +13,13 @@
   <%= link_to 'publishers', publishers_path %>
   <%= link_to 'users', users_path %>
   <%= link_to 'genres', genres_path %>
+  <% unless current_user.nil? %>
+      <%= link_to 'my page', current_user %>
+      <%= link_to 'signout', signout_path, method: :delete %>
+  <% else %>
+      <%= link_to 'signin', signin_path %>
+      <%= link_to 'signup', signup_path %>
+  <% end %>
 </div>
 
 <%= yield %>
