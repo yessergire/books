@@ -1,0 +1,16 @@
+<h1>Listing authors of <%= link_to @book.name, @book %></h1>
+
+<ul>
+    <% @book_genres.each do |book_genre| %>
+      <li>
+        <%= link_to book_genre.genre.name, book_genre.genre %>
+        <%= link_to 'Remove', book_genre, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+</ul>
+
+<br>
+
+<% unless @book_id.nil? %>
+    <%= link_to 'Add a genre', new_book_genre_path(params: {book_id: @book_id}) %>
+<% end %>

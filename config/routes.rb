@@ -1,4 +1,6 @@
 Books::Application.routes.draw do
+  resources :users
+
   resources :publishers
 
   resources :books
@@ -8,6 +10,8 @@ Books::Application.routes.draw do
   resources :authors
 
   resources :book_authors
+
+  resources :book_genres
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,16 @@
+<h1>Listing authors of <%= link_to @book.name, @book %></h1>
+
+<ul>
+    <% @book_authors.each do |book_author| %>
+      <li>
+        <%= link_to book_author.author.name, book_author.author %>
+        <%= link_to 'Remove', book_author, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+</ul>
+
+<br>
+
+<% unless @book_id.nil? %>
+    <%= link_to 'Add an author', new_book_author_path(params: {book_id: @book_id}) %>
+<% end %>

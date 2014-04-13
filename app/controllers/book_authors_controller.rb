@@ -1,5 +1,15 @@
 class BookAuthorsController < ApplicationController
 
+  def index
+    @book_id = params[:book_id]
+    @book = Book.find @book_id
+    unless @book_id.nil?
+      @book_authors = BookAuthor.where(book_id: @book_id)
+    else
+      @book_authors = BookAuthor.all
+    end
+  end
+
   def new
     @book_author = BookAuthor.new
     @authors = Author.all
@@ -12,7 +22,7 @@ class BookAuthorsController < ApplicationController
 
     respond_to do |format|
       if @book_author.save
-        format.html { redirect_to :back, notice: 'Successfully created.' }
+        format.html { redirect_to book_authors_path(params: {book_id: @book_author.book.id}), notice: 'Successfully created.' }
       else
         format.html { render action: 'new' }
       end
@@ -20,10 +30,10 @@ class BookAuthorsController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id])
-    @book.destroy
+    @book_author = BookAuthor.find(params[:id])
+    @book_author.destroy
     respond_to do |format|
-      format.html { redirect_to books_url }
+      format.html { redirect_to  book_authors_path(params: {book_id: @book_author.book.id}) }
       format.json { head :no_content }
     end
   end

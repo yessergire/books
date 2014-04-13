@@ -5,4 +5,7 @@
 <%= link_to 'Show', @book %> |
 <%= link_to 'Back', books_path %>
 
-<%= link_to 'Add author', new_book_author_path(params: {book_id: @book.id})  %>
+<br />
+
+<%= link_to 'Edit authors', book_authors_path(params: {book_id: @book.id})  %> |
+<%= link_to 'Edit genres', book_genres_path(params: {book_id: @book.id})  %>
