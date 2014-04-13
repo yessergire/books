@@ -1,27 +1,28 @@
 <h1>Listing publishers</h1>
 
-<table>
+<p>
+  Number of publisher:
+  <%= @publishers.count %>
+</p>
+
+<table class="table table-hover">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-      <th></th>
-      <th></th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @publishers.each do |publisher| %>
+  <% @publishers.each do |publisher| %>
       <tr>
         <td><%= link_to publisher.name, publisher %></td>
-        <td><%= publisher.url %></td>
-        <td><%= link_to 'Edit', edit_publisher_path(publisher) %></td>
-        <td><%= link_to 'Destroy', publisher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= edit_and_destroy_buttons(publisher) %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Publisher', new_publisher_path %>
+<%= link_to('New publisher', new_publisher_path, class:"btn btn-default") unless current_user.nil? %>

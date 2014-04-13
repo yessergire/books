@@ -1,11 +1,23 @@
 <h1>Listing authors</h1>
 
-<ul>
-    <% @authors.each do |author| %>
-      <li><%= link_to author.name, author %></li>
-    <% end %>
-</ul>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @authors.each do |author| %>
+      <tr>
+        <td><%= link_to author.name, author %></td>
+        <td><%= edit_and_destroy_buttons(author) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
 
 <br>
 
-<%= link_to 'New Author', new_author_path %>
+<%= link_to('New author', new_author_path, class:"btn btn-default") unless current_user.nil? %>
