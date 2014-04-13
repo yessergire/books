@@ -1,4 +1,6 @@
 Books::Application.routes.draw do
+  resources :reviews
+
   resources :users
 
   resources :publishers
