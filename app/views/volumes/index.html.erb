@@ -1,0 +1,26 @@
+<h1>Books search</h1>
+
+<%= form_tag volumes_path do %>
+  search <%= text_field_tag :volume, params[:volume] %>
+  <%= submit_tag "Search" %>
+<% end %>
+<p>
+  <% if @volumes %>
+    <ul class="list-unstyled">
+      <% @volumes.each do |volume| %>
+        <li><div class="media">
+          <a class="pull-left" href="#">
+            <img class="media-object" src="<%= volume.image %>" alt="<%= volume.title %>">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">
+              <%= link_to volume.title, volume_path(volume.id) %>
+              <br>
+              <small><%= volume.subtitle %></small>
+            </h4>
+            <p><%= volume.description %></p>
+          </div></div></li>
+      <% end %>
+    </ul>
+<% end %>
+</p>

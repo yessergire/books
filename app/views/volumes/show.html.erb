@@ -1,0 +1,26 @@
+<h1>
+  <%= @volume.title %>
+  <br>
+  <small><%= @volume.subtitle %></small>
+</h1>
+<div class="media">
+  <h4 class="media-heading">Publisher:
+  <%= @volume.publisher %>
+  <br>
+  <small>
+    <p>Published on <%= @volume.publishedDate %>
+    <br><%= @volume.pageCount %> pages </p>
+  </small>
+</h4>
+  <a class="pull-left" href="#">
+    <img class="media-object" src="<%= @volume.image %>" alt="<%= @volume.title %>">
+  </a>
+  <div class="media-body">
+    <p><%= @volume.description %></p>
+</div>
+      <th>publisher</th>
+      <th>publishedDate</th>
+      <th>description</th>
+      <th>pageCount</th>
+      <th>averageRating</th>
+      <th>image</th>
